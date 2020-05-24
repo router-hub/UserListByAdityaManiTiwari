@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "DecisionPoint"
+    }
+  },
+  "defaultProject": "DecisionPoint",
+  "cli": {
+    "analytics": "11b0dddb-fcaf-4c61-ba14-db3d139aff2a"
+  }
 }

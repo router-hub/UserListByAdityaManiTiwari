@@ -1,0 +1,23 @@
+<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column"
+    fxLayoutAlign.gt-md="space-around center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+
+    <div fxFlex="40" *ngIf="userPosts">
+        <mat-card *ngIf="userPosts">
+            <mat-card-header>
+                <mat-card-title>
+                    <h3> User Id:  {{userPosts[0].userId}}</h3>
+                </mat-card-title>
+            </mat-card-header>
+             <mat-card-content>
+                <mat-list>
+                    <mat-divider></mat-divider>
+                    <mat-list-item *ngFor=" let userPost of userPosts">
+                        <div matLine>Title: {{userPost.title}}</div>
+                        <div matLine>Posts: {{userPost.body}} </div>
+                        <mat-divider></mat-divider>
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+
+    </div>

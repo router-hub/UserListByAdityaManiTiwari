@@ -1,0 +1,52 @@
+<div class="container"
+fxLayout="column"
+fxLayoutGap="10px">
+<div fxFlex>
+    <div>
+        <h3>{{title}}</h3>
+    <hr>
+    </div>
+</div>
+<form class="example-form" >
+    <mat-form-field class="example-full-width">
+      <input type="text"
+             placeholder="Search by name of users"
+             aria-label="Number"
+             matInput
+             [formControl]="myControl"
+             [matAutocomplete]="auto"
+             [(ngModel)]="value">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+  <div *ngFor="let user of users" class="posts">
+    <a *ngIf="user.name==value" mat-raised-button [routerLink]="['/posts',user.id]"routerLinkActive="active">See Posts</a>
+  </div>
+<div fxFlex [hidden]="users">
+    <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+  </div>
+<div fxFlex *ngIf="users">
+    <mat-grid-list cols="2" rowHeight="200px" >
+        <mat-grid-tile *ngFor="let user of users" [routerLink]="['/posts',user.id]" >
+            <img height="200px" src="../../../assets/Images/userimg.png" alt={{user.name}}>
+            <mat-grid-tile-footer>
+                <h1 matLine style="text-align: center;"> {{user.name | uppercase }} [ID: {{user.id}}] </h1>
+            </mat-grid-tile-footer>
+        </mat-grid-tile>
+    </mat-grid-list>
+    
+</div>
+<div [hidden]="users || errMess">
+    <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+  </div>
+<div fxFlex *ngIf='errMess'>
+    <h2>Error</h2>
+    <h4>{{errMess}}</h4>
+</div>
+
+</div>
+  

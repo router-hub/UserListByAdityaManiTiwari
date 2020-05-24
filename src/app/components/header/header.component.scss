@@ -1,0 +1,18 @@
+@import "../../../assets/font-awesome/css/font-awesome.min.css";
+@import "https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap";
+mat-toolbar{
+    margin:0;
+    padding:0;
+    width:100%;
+    height:60px;
+    i{
+        margin:5px;
+    }
+    background-color: #e8aaa3;
+    h1{
+        margin:0;
+        margin-left:5px;
+        font-family: 'Roboto Mono', monospace;
+        color:#353232;
+    }
+}
